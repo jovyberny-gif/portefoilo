@@ -1,6 +1,6 @@
 import { portfolioData } from "@/data/portfolioData";
 import Link from "next/link";
-import { Download, Mail, ExternalLink, Github, Calendar, MapPin, Briefcase } from "lucide-react";
+import { Download, Mail, ExternalLink, Code, Calendar, MapPin, Briefcase } from "lucide-react";
 import Image from "next/image";
 
 export default function Home() {
@@ -132,7 +132,7 @@ export default function Home() {
                 <div className="flex items-center gap-4 border-t border-slate-100 dark:border-slate-700 pt-4">
                   {project.github && (
                     <Link href={project.github} target="_blank" className="flex items-center gap-2 text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors">
-                      <Github size={16} /> Code
+                      <Code size={16} /> Code
                     </Link>
                   )}
                   {project.demo && (

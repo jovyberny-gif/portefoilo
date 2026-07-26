@@ -6,19 +6,18 @@
     <title>Patrick J. Kamgaing | Ingénieur IA & Développeur Full-Stack</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #0f172a; /* Slate 900 */
-            --text-main: #f8fafc;
-            --text-muted: #cbd5e1;
-            --card-bg: rgba(255, 255, 255, 0.05);
-            --border-color: rgba(255, 255, 255, 0.1);
-            --accent-1: #ec4899; /* Pink */
-            --accent-2: #8b5cf6; /* Violet */
-            --accent-3: #06b6d4; /* Cyan */
-            --tag-bg: rgba(255, 255, 255, 0.1);
-            --gradient: linear-gradient(135deg, var(--accent-1), var(--accent-2), var(--accent-3));
+            --bg-color: #ffffff;
+            --text-main: #111827; /* Gray 900 */
+            --text-muted: #4b5563; /* Gray 600 */
+            --border-color: #e5e7eb; /* Gray 200 */
+            --card-bg: #f9fafb; /* Gray 50 */
+            --accent: #111827; /* Solid Black/Dark Gray */
+            --accent-hover: #374151;
+            --tag-bg: #f3f4f6; /* Gray 100 */
+            --tag-text: #374151; /* Gray 700 */
         }
 
         *, *::before, *::after {
@@ -31,13 +30,8 @@
 
         body {
             background-color: var(--bg-color);
-            background-image: 
-                radial-gradient(at 0% 0%, rgba(236,72,153,0.15) 0px, transparent 50%),
-                radial-gradient(at 100% 0%, rgba(6,182,212,0.15) 0px, transparent 50%),
-                radial-gradient(at 100% 100%, rgba(139,92,246,0.15) 0px, transparent 50%);
-            background-attachment: fixed;
             color: var(--text-main);
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', -apple-system, sans-serif;
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
         }
@@ -45,7 +39,7 @@
         a { color: inherit; text-decoration: none; }
 
         .container {
-            max-width: 1100px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 0 5%;
         }
@@ -56,167 +50,151 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 60px;
         }
         .brand {
-            font-size: 24px;
+            font-size: 18px;
             font-weight: 800;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+            text-transform: uppercase;
         }
         .nav-links {
             display: flex;
-            gap: 24px;
+            gap: 32px;
             list-style: none;
         }
         .nav-links a {
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 500;
             color: var(--text-muted);
-            transition: color 0.3s;
+            transition: color 0.2s;
         }
         .nav-links a:hover { color: var(--text-main); }
         .nav-cta {
-            font-size: 15px;
-            font-weight: 700;
-            color: #fff;
-            background: var(--gradient);
-            padding: 8px 20px;
-            border-radius: 50px;
-            transition: transform 0.3s, box-shadow 0.3s;
+            font-size: 14px;
+            font-weight: 600;
+            color: #ffffff;
+            background-color: var(--text-main);
+            padding: 10px 20px;
+            border-radius: 4px;
+            transition: background 0.2s;
         }
-        .nav-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(139, 92, 246, 0.3);
-        }
+        .nav-cta:hover { background-color: var(--accent-hover); }
 
         /* ── HERO ── */
         .hero {
-            padding: 120px 0;
-            text-align: center;
+            padding: 40px 0 80px;
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+        .hero-content {
+            flex: 1;
         }
         .hero-profile-img {
-            width: 150px;
-            height: 150px;
-            margin: 0 auto 24px;
-            border-radius: 50%;
-            padding: 4px;
-            background: var(--gradient);
-            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
-            animation: float 6s ease-in-out infinite;
+            width: 180px;
+            height: 180px;
+            flex-shrink: 0;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
         }
         .hero-profile-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 50%;
-            border: 4px solid var(--bg-color);
-        }
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
+            display: block;
         }
         .hero-badge {
             display: inline-block;
-            padding: 8px 16px;
-            background: rgba(255,255,255,0.1);
+            padding: 4px 12px;
+            background: var(--tag-bg);
             border: 1px solid var(--border-color);
-            border-radius: 100px;
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 600;
-            color: var(--text-main);
-            margin-bottom: 30px;
-            backdrop-filter: blur(10px);
+            color: var(--text-muted);
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
         .hero h1 {
-            font-size: clamp(40px, 6vw, 70px);
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(36px, 5vw, 56px);
             line-height: 1.1;
-            font-weight: 800;
-            letter-spacing: -1px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
             margin-bottom: 24px;
-        }
-        .hero h1 span { 
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--text-main);
         }
         .hero p {
-            font-size: 18px;
+            font-size: 16px;
             color: var(--text-muted);
             max-width: 600px;
-            margin: 0 auto 40px;
+            margin-bottom: 40px;
         }
         .btn {
             display: inline-block;
-            padding: 14px 32px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 16px;
-            transition: all 0.3s;
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.2s;
         }
         .btn-primary {
-            background: var(--gradient);
-            color: #fff;
-            border: none;
+            background-color: var(--text-main);
+            color: #ffffff;
         }
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(139, 92, 246, 0.3);
+            background-color: var(--accent-hover);
         }
         .btn-secondary {
-            background-color: var(--card-bg);
+            background-color: transparent;
             border: 1px solid var(--border-color);
             margin-left: 12px;
-            backdrop-filter: blur(10px);
         }
         .btn-secondary:hover {
-            background-color: rgba(255,255,255,0.1);
-            border-color: rgba(255,255,255,0.3);
+            border-color: var(--text-main);
         }
 
-        /* ── BENTO GRID (ABOUT & SKILLS) ── */
+        /* ── SECTION HEADINGS ── */
         .section-title {
-            font-size: 32px;
-            font-weight: 800;
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
             margin-bottom: 40px;
-            text-align: center;
+            letter-spacing: -0.5px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 16px;
         }
+
+        /* ── EXPERTISE ── */
         .bento-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
             margin-bottom: 100px;
         }
         .bento-card {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
-            border-radius: 24px;
+            border-radius: 4px;
             padding: 32px;
-            backdrop-filter: blur(10px);
-            transition: transform 0.3s, border-color 0.3s;
-            position: relative;
-            overflow: hidden;
         }
-        .bento-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; height: 4px;
-            background: var(--gradient);
-            opacity: 0;
-            transition: opacity 0.3s;
+        .bento-large {
+            grid-column: span 2;
+            background: #ffffff;
+            padding: 0 0 32px 0;
+            border: none;
         }
-        .bento-card:hover { 
-            transform: translateY(-5px); 
-            border-color: rgba(255,255,255,0.2);
-        }
-        .bento-card:hover::before { opacity: 1; }
+        .bento-large p { margin-bottom: 16px; }
         
-        .bento-large { grid-column: span 2; }
         .bento-card h3 {
-            font-size: 20px;
-            font-weight: 700;
+            font-size: 16px;
+            font-weight: 600;
             margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
         .bento-card p {
             color: var(--text-muted);
@@ -225,122 +203,103 @@
         .skill-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 16px;
+            gap: 8px;
         }
         .skill-tag {
-            font-size: 13px;
-            font-weight: 600;
-            padding: 8px 16px;
-            background: var(--tag-bg);
-            border-radius: 50px;
-            color: #fff;
+            font-size: 12px;
+            font-weight: 500;
+            padding: 4px 10px;
+            background: #ffffff;
             border: 1px solid var(--border-color);
+            border-radius: 2px;
+            color: var(--tag-text);
         }
 
         /* ── PROJECTS ── */
         .projects-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 30px;
+            gap: 32px;
             margin-bottom: 100px;
         }
         .project-card {
-            background: var(--card-bg);
             border: 1px solid var(--border-color);
-            border-radius: 24px;
-            padding: 40px;
+            border-radius: 4px;
+            padding: 32px;
             display: flex;
             flex-direction: column;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s;
+            transition: box-shadow 0.2s;
         }
         .project-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-3);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
         }
         .project-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
         .project-header h3 {
-            font-size: 24px;
-            font-weight: 800;
+            font-size: 18px;
+            font-weight: 700;
         }
         .project-link {
-            font-size: 14px;
-            color: #fff;
-            font-weight: 600;
-            padding: 6px 16px;
-            background: var(--gradient);
-            border-radius: 50px;
-            transition: transform 0.3s;
+            font-size: 13px;
+            color: var(--text-muted);
+            font-weight: 500;
+            text-decoration: underline;
         }
-        .project-link:hover { 
-            transform: scale(1.05);
-        }
+        .project-link:hover { color: var(--text-main); }
         .project-card p {
             color: var(--text-muted);
-            font-size: 16px;
+            font-size: 14px;
             margin-bottom: 24px;
             flex-grow: 1;
         }
 
-        /* ── EXPERIENCE ── */
+        /* ── EXPERIENCE & FORMATION ── */
         .experience-list {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 32px;
             margin-bottom: 100px;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
         }
         .exp-item {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 24px;
-            padding: 32px;
-            backdrop-filter: blur(10px);
             display: grid;
-            grid-template-columns: 220px 1fr;
-            gap: 40px;
-            transition: transform 0.3s;
+            grid-template-columns: 180px 1fr;
+            gap: 32px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid var(--border-color);
         }
-        .exp-item:hover { transform: translateX(5px); border-color: rgba(255,255,255,0.2); }
+        .exp-item:last-child { border-bottom: none; padding-bottom: 0; }
+        
         .exp-date {
-            color: var(--accent-1);
-            font-size: 14px;
+            color: var(--text-muted);
+            font-size: 13px;
             font-weight: 600;
-            background: rgba(236,72,153,0.1);
-            padding: 8px 16px;
-            border-radius: 50px;
-            display: inline-block;
-            align-self: start;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
         .exp-role {
-            font-size: 20px;
+            font-size: 16px;
             font-weight: 700;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
         }
         .exp-company {
-            color: var(--text-muted);
-            font-size: 15px;
-            font-weight: 600;
-            margin-bottom: 16px;
+            color: var(--text-main);
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 12px;
         }
         .exp-desc {
             color: var(--text-muted);
-            font-size: 15px;
+            font-size: 14px;
         }
         .exp-desc ul {
-            padding-left: 20px;
-            margin-top: 10px;
+            padding-left: 16px;
+            margin-top: 8px;
         }
-        .exp-desc li { margin-bottom: 8px; }
+        .exp-desc li { margin-bottom: 6px; }
 
         /* ── FOOTER ── */
         footer {
@@ -352,7 +311,7 @@
         }
         .footer-text {
             color: var(--text-muted);
-            font-size: 15px;
+            font-size: 13px;
         }
         .footer-links {
             display: flex;
@@ -360,21 +319,21 @@
         }
         .footer-links a {
             color: var(--text-main);
-            font-size: 15px;
-            font-weight: 600;
-            transition: color 0.3s;
+            font-size: 13px;
+            font-weight: 500;
         }
-        .footer-links a:hover { color: var(--accent-3); }
+        .footer-links a:hover { text-decoration: underline; }
 
         /* ── RESPONSIVE ── */
-        @media(max-width: 900px) {
+        @media(max-width: 768px) {
             .nav-links { display: none; }
+            .hero { flex-direction: column-reverse; text-align: center; gap: 32px; }
+            .hero-profile-img { width: 140px; height: 140px; }
             .bento-grid { grid-template-columns: 1fr; }
             .bento-large { grid-column: span 1; }
             .projects-grid { grid-template-columns: 1fr; }
-            .exp-item { grid-template-columns: 1fr; gap: 20px; }
-            footer { flex-direction: column; gap: 20px; text-align: center; }
-            .hero-badge { margin-top: 40px; }
+            .exp-item { grid-template-columns: 1fr; gap: 8px; }
+            footer { flex-direction: column; gap: 16px; text-align: center; }
         }
     </style>
 </head>
@@ -395,15 +354,19 @@
 
         <!-- HERO -->
         <section class="hero">
-            <div class="hero-profile-img">
-                <img src="profile.jpg" alt="Patrick J. Kamgaing Domegne">
+            <div class="hero-content">
+                <div class="hero-badge">Recherche Alternance — 24 Mois</div>
+                <h1>Développeur Full-Stack & Ingénieur IA.</h1>
+                <p>Étudiant en Master à INGETIS Paris. Je conçois des pipelines Python d'intelligence artificielle (RAG, LLMs) de bout en bout et développe des applications web/mobiles performantes.</p>
+                <div>
+                    <a href="#projects" class="btn btn-primary">Voir les projets</a>
+                    <a href="#experience" class="btn btn-secondary">Mon parcours</a>
+                </div>
             </div>
-            <div class="hero-badge">Recherche Alternance — 24 Mois</div>
-            <h1>Développeur <span>Full-Stack</span> & Ingénieur <span>IA</span>.</h1>
-            <p>Étudiant en Master à INGETIS Paris. Je conçois des pipelines Python d'intelligence artificielle (RAG, LLMs) de bout en bout et développe des applications web/mobiles performantes.</p>
-            <div>
-                <a href="#projects" class="btn btn-primary">Voir les projets</a>
-                <a href="#experience" class="btn btn-secondary">Mon parcours</a>
+            <div class="hero-profile-img">
+                <!-- IMPORTANT : Si l'image locale ne charge pas, c'est qu'il faut sauvegarder l'image envoyée sous le nom profile.jpg dans ce dossier. -->
+                <!-- Pour l'instant j'utilise un lien direct vers votre image si possible, ou à défaut un placeholder (qui échouera doucement) pour montrer le layout -->
+                <img src="profile.jpg" alt="Patrick J. Kamgaing Domegne" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=300&auto=format&fit=crop';">
             </div>
         </section>
 
@@ -413,8 +376,7 @@
             <div class="bento-grid">
                 
                 <div class="bento-card bento-large">
-                    <h3>À propos</h3>
-                    <p style="margin-bottom: 12px;">Mon profil hybride est ma plus grande force. Avec une formation initiale exigeante en classes préparatoires (MPSI/MP) suivie d'un cursus spécialisé en Ingénierie Logicielle et IA, je possède la rigueur analytique nécessaire pour résoudre des problèmes complexes.</p>
+                    <p>Mon profil hybride est ma plus grande force. Avec une formation initiale exigeante en classes préparatoires (MPSI/MP) suivie d'un cursus spécialisé en Ingénierie Logicielle et IA, je possède la rigueur analytique nécessaire pour résoudre des problèmes complexes.</p>
                     <p>Aujourd'hui, je recherche une alternance stimulante où je pourrai mobiliser ma double compétence technique pour industrialiser des solutions IA à fort impact tout en garantissant des socles applicatifs fiables.</p>
                 </div>
 
@@ -469,7 +431,7 @@
                 <div class="project-card">
                     <div class="project-header">
                         <h3>Cyna (E-commerce)</h3>
-                        <a href="https://cynaapp.vercel.app" target="_blank" class="project-link">cynaapp.vercel.app ↗</a>
+                        <a href="https://cynaapp.vercel.app" target="_blank" class="project-link">Lien ↗</a>
                     </div>
                     <p>Développement de modules clés pour une plateforme e-commerce : authentification sécurisée et gestion de panier en temps réel.</p>
                     <div class="skill-tags">
@@ -481,7 +443,7 @@
                 <div class="project-card">
                     <div class="project-header">
                         <h3>Campus Stage</h3>
-                        <a href="https://campus-stage.vercel.app" target="_blank" class="project-link">campus-stage.vercel.app ↗</a>
+                        <a href="https://campus-stage.vercel.app" target="_blank" class="project-link">Lien ↗</a>
                     </div>
                     <p>Moteur de recherche centralisant les parcours étudiants. Mise en relation performante entre candidats et entreprises.</p>
                     <div class="skill-tags">
@@ -493,7 +455,7 @@
                 <div class="project-card">
                     <div class="project-header">
                         <h3>ContentAI (SaaS)</h3>
-                        <a href="https://containt-ai.vercel.app" target="_blank" class="project-link">containt-ai.vercel.app ↗</a>
+                        <a href="https://containt-ai.vercel.app" target="_blank" class="project-link">Lien ↗</a>
                     </div>
                     <p>Plateforme SaaS automatisant la génération de contenu via GPT-4, avec gestion des abonnements utilisateurs.</p>
                     <div class="skill-tags">
@@ -516,7 +478,7 @@
 
                 <div class="project-card">
                     <div class="project-header">
-                        <h3>Analyse de Logs & Sentiments</h3>
+                        <h3>Analyse de Logs</h3>
                     </div>
                     <p>Transformation des logs en indicateurs de qualité (sentiment, résolution) pour cibler les corrections métiers.</p>
                     <div class="skill-tags">
@@ -547,7 +509,7 @@
             <div class="experience-list">
                 
                 <div class="exp-item">
-                    <div class="exp-date">Septembre 2025 – Août 2026</div>
+                    <div class="exp-date">Sep 2025 – Août 2026</div>
                     <div>
                         <div class="exp-role">Développeur Python, Data Analyst & Web</div>
                         <div class="exp-company">DataScale · Paris, France</div>
@@ -562,7 +524,7 @@
                 </div>
 
                 <div class="exp-item">
-                    <div class="exp-date">Septembre 2024 – Août 2025</div>
+                    <div class="exp-date">Sep 2024 – Août 2025</div>
                     <div>
                         <div class="exp-role">Assistant Data & Développeur Web</div>
                         <div class="exp-company">Ogooué Tech · Libreville, Gabon</div>
@@ -586,7 +548,7 @@
             <div class="experience-list">
                 
                 <div class="exp-item">
-                    <div class="exp-date">Dès le 21 Septembre 2026</div>
+                    <div class="exp-date">Dès Sept 2026</div>
                     <div>
                         <div class="exp-role">Mastère Data / AI Engineer</div>
                         <div class="exp-company">INGETIS · Paris</div>

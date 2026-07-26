@@ -95,6 +95,28 @@
             padding: 120px 0;
             text-align: center;
         }
+        .hero-profile-img {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 24px;
+            border-radius: 50%;
+            padding: 4px;
+            background: var(--gradient);
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
+            animation: float 6s ease-in-out infinite;
+        }
+        .hero-profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid var(--bg-color);
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
         .hero-badge {
             display: inline-block;
             padding: 8px 16px;
@@ -373,6 +395,9 @@
 
         <!-- HERO -->
         <section class="hero">
+            <div class="hero-profile-img">
+                <img src="profile.jpg" alt="Patrick J. Kamgaing Domegne">
+            </div>
             <div class="hero-badge">Recherche Alternance — 24 Mois</div>
             <h1>Développeur <span>Full-Stack</span> & Ingénieur <span>IA</span>.</h1>
             <p>Étudiant en Master à INGETIS Paris. Je conçois des pipelines Python d'intelligence artificielle (RAG, LLMs) de bout en bout et développe des applications web/mobiles performantes.</p>

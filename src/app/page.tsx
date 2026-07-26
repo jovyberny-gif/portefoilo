@@ -1,6 +1,6 @@
 import { portfolioData } from "@/data/portfolioData";
 import Link from "next/link";
-import { Download, Mail } from "lucide-react";
+import { Download, Mail, ExternalLink, Github, Calendar, MapPin, Briefcase } from "lucide-react";
 import Image from "next/image";
 
 export default function Home() {
@@ -89,6 +89,115 @@ export default function Home() {
                   <span key={skill} className="px-3 py-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-sm font-medium rounded-md">{skill}</span>
                 ))}
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* PROJECTS SECTION */}
+      <section id="projects" className="w-full max-w-6xl mx-auto px-6 py-20">
+        <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-12 text-center">Mes Projets</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {portfolioData.projects.map(project => (
+            <div key={project.id} className="group relative bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+              <div className="h-48 w-full relative bg-slate-100 dark:bg-slate-700 overflow-hidden">
+                <div className="absolute inset-0 bg-blue-600/10 group-hover:bg-transparent transition-colors z-10"></div>
+                {/* Fallback pattern if image is missing */}
+                <div className="absolute inset-0 opacity-10 pattern-dots text-slate-900 dark:text-white"></div>
+                <div className="absolute bottom-3 left-3 z-20">
+                  <span className="px-3 py-1 bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm text-xs font-semibold rounded-full text-slate-900 dark:text-white border border-slate-200 dark:border-slate-700">
+                    {project.category}
+                  </span>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="font-bold text-xl text-slate-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                  {project.title}
+                </h3>
+                <p className="text-slate-600 dark:text-slate-400 text-sm mb-4 line-clamp-2">
+                  {project.problem}
+                </p>
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {project.technologies.slice(0, 3).map(tech => (
+                    <span key={tech} className="text-xs font-medium text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-700/50 px-2 py-1 rounded">
+                      {tech}
+                    </span>
+                  ))}
+                  {project.technologies.length > 3 && (
+                    <span className="text-xs font-medium text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-700/50 px-2 py-1 rounded">
+                      +{project.technologies.length - 3}
+                    </span>
+                  )}
+                </div>
+                <div className="flex items-center gap-4 border-t border-slate-100 dark:border-slate-700 pt-4">
+                  {project.github && (
+                    <Link href={project.github} target="_blank" className="flex items-center gap-2 text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors">
+                      <Github size={16} /> Code
+                    </Link>
+                  )}
+                  {project.demo && (
+                    <Link href={project.demo} target="_blank" className="flex items-center gap-2 text-sm font-medium text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors">
+                      <ExternalLink size={16} /> Live Demo
+                    </Link>
+                  )}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* EXPERIENCE & EDUCATION SECTION */}
+      <section id="experience" className="w-full bg-slate-50 dark:bg-slate-900 py-20 border-y border-slate-200 dark:border-slate-800">
+        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16">
+          {/* Experience Timeline */}
+          <div>
+            <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-10 flex items-center gap-3">
+              <Briefcase className="text-blue-600" /> Expériences
+            </h2>
+            <div className="relative border-l-2 border-slate-200 dark:border-slate-700 ml-4 space-y-12">
+              {portfolioData.experiences.map((exp) => (
+                <div key={exp.id} className="relative pl-8">
+                  <div className="absolute -left-[9px] top-1 w-4 h-4 bg-white dark:bg-slate-900 border-4 border-blue-600 rounded-full"></div>
+                  <div className="mb-1 flex flex-wrap items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
+                    <span className="flex items-center gap-1"><Calendar size={14} /> {exp.startDate} - {exp.endDate}</span>
+                    <span className="hidden sm:block">•</span>
+                    <span className="flex items-center gap-1"><MapPin size={14} /> {exp.location}</span>
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white">{exp.role}</h3>
+                  <div className="text-blue-600 dark:text-blue-400 font-medium mb-3">{exp.company}</div>
+                  <p className="text-slate-600 dark:text-slate-400 text-sm mb-3">{exp.description}</p>
+                  <ul className="space-y-1">
+                    {exp.achievements.map((achievement, i) => (
+                      <li key={i} className="text-sm text-slate-600 dark:text-slate-400 flex items-start gap-2">
+                        <span className="text-blue-500 mt-1">•</span> {achievement}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Education Timeline */}
+          <div>
+            <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-10 flex items-center gap-3">
+              <span className="text-purple-600 text-2xl font-serif">🎓</span> Formation
+            </h2>
+            <div className="relative border-l-2 border-slate-200 dark:border-slate-700 ml-4 space-y-12">
+              {portfolioData.education.map((edu) => (
+                <div key={edu.id} className="relative pl-8">
+                  <div className="absolute -left-[9px] top-1 w-4 h-4 bg-white dark:bg-slate-900 border-4 border-purple-600 rounded-full"></div>
+                  <div className="mb-1 flex flex-wrap items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
+                    <span className="flex items-center gap-1"><Calendar size={14} /> {edu.startDate} - {edu.endDate}</span>
+                    <span className="hidden sm:block">•</span>
+                    <span className="flex items-center gap-1"><MapPin size={14} /> {edu.location}</span>
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white">{edu.degree}</h3>
+                  <div className="text-purple-600 dark:text-purple-400 font-medium mb-3">{edu.school}</div>
+                  <p className="text-slate-600 dark:text-slate-400 text-sm">{edu.description}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>

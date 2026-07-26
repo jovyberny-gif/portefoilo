@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any, @typescript-eslint/no-unused-vars */
 import { Document, Paragraph, TextRun, Packer, HeadingLevel } from "docx";
 import * as fs from "fs";
 import * as path from "path";

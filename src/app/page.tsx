@@ -1,6 +1,6 @@
 import { portfolioData } from "@/data/portfolioData";
 import Link from "next/link";
-import { Download, ExternalLink, Mail } from "lucide-react";
+import { Download, Mail } from "lucide-react";
 import Image from "next/image";
 
 export default function Home() {
@@ -28,7 +28,7 @@ export default function Home() {
       <section id="hero" className="w-full max-w-6xl mx-auto px-6 pt-32 pb-20 md:pt-40 md:pb-32 flex flex-col md:flex-row items-center gap-12">
         <div className="flex-1 space-y-6">
           <h1 className="text-4xl md:text-6xl font-extrabold text-slate-900 dark:text-white leading-tight">
-            Créateur d'applications <span className="text-blue-600">Web</span> & Solutions <span className="text-purple-500">IA</span>.
+            Créateur d&apos;applications <span className="text-blue-600">Web</span> & Solutions <span className="text-purple-500">IA</span>.
           </h1>
           <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-2xl">
             {portfolioData.profile.about}
@@ -106,7 +106,7 @@ export default function Home() {
             <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-bl-full"></div>
             <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">Développeur Full-Stack</h3>
             <p className="text-slate-600 dark:text-slate-400 text-sm mb-6 min-h-16">
-              Mise en avant de React, Node.js, PHP, Java, la création d'API et mes projets de développement web.
+              Mise en avant de React, Node.js, PHP, Java, la création d&apos;API et mes projets de développement web.
             </p>
             <div className="flex flex-col gap-3">
               <a href="/cv/CV_Patrick_Jovani_Developpeur_FullStack.pdf" download className="w-full px-4 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors flex items-center justify-center gap-2">
@@ -123,7 +123,7 @@ export default function Home() {
             <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/10 rounded-bl-full"></div>
             <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">Data Analyst / IA</h3>
             <p className="text-slate-600 dark:text-slate-400 text-sm mb-6 min-h-16">
-              Mise en avant de Python, SQL, Power BI, le nettoyage de données et l'implémentation de modèles (RAG).
+              Mise en avant de Python, SQL, Power BI, le nettoyage de données et l&apos;implémentation de modèles (RAG).
             </p>
             <div className="flex flex-col gap-3">
               <a href="/cv/CV_Patrick_Jovani_Data_IA.pdf" download className="w-full px-4 py-3 bg-purple-600 hover:bg-purple-700 text-white font-medium rounded-lg transition-colors flex items-center justify-center gap-2">
@@ -140,7 +140,7 @@ export default function Home() {
       {/* FOOTER */}
       <footer className="w-full bg-slate-900 text-slate-400 py-8 text-center mt-auto">
         <p>© 2026 {portfolioData.profile.name}. Tous droits réservés.</p>
-        <p className="text-sm mt-2">Design optimisé pour l'accessibilité et la performance (Next.js).</p>
+        <p className="text-sm mt-2">Design optimisé pour l&apos;accessibilité et la performance (Next.js).</p>
       </footer>
     </main>
   );

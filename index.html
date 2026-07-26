@@ -3,351 +3,225 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Patrick J. Kamgaing | Ingénieur IA & Développeur Full-Stack</title>
+    <title>Patrick J. Kamgaing | Web & AI Engineer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #ffffff;
-            --text-main: #111827; /* Gray 900 */
-            --text-muted: #4b5563; /* Gray 600 */
-            --border-color: #e5e7eb; /* Gray 200 */
-            --card-bg: #f9fafb; /* Gray 50 */
-            --accent: #111827; /* Solid Black/Dark Gray */
-            --accent-hover: #374151;
-            --tag-bg: #f3f4f6; /* Gray 100 */
-            --tag-text: #374151; /* Gray 700 */
+            --bg-color: #fafcff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --card-bg: #ffffff;
+            --web-color: #3b82f6; /* Blue */
+            --web-bg: #eff6ff;
+            --ai-color: #8b5cf6; /* Violet */
+            --ai-bg: #f5f3ff;
+            --data-color: #10b981; /* Emerald */
+            --data-bg: #ecfdf5;
         }
 
-        *, *::before, *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
 
         body {
             background-color: var(--bg-color);
             color: var(--text-main);
-            font-family: 'Inter', -apple-system, sans-serif;
+            font-family: 'Outfit', sans-serif;
             line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            position: relative;
         }
+
+        /* Ambient Background Blobs */
+        .blob {
+            position: absolute;
+            filter: blur(100px);
+            opacity: 0.4;
+            z-index: -1;
+            border-radius: 50%;
+        }
+        .blob-1 { top: -100px; left: -100px; width: 400px; height: 400px; background: var(--web-color); }
+        .blob-2 { top: 200px; right: -150px; width: 500px; height: 500px; background: var(--ai-color); opacity: 0.3; }
 
         a { color: inherit; text-decoration: none; }
 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 5%;
-        }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 5%; }
 
         /* ── NAVBAR ── */
         nav {
-            padding: 30px 0;
+            padding: 24px 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 60px;
         }
-        .brand {
-            font-size: 18px;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-            text-transform: uppercase;
-        }
-        .nav-links {
-            display: flex;
-            gap: 32px;
-            list-style: none;
-        }
-        .nav-links a {
-            font-size: 14px;
-            font-weight: 500;
-            color: var(--text-muted);
-            transition: color 0.2s;
-        }
+        .brand { font-size: 22px; font-weight: 800; letter-spacing: -0.5px; }
+        .nav-links { display: flex; gap: 32px; list-style: none; }
+        .nav-links a { font-size: 15px; font-weight: 500; color: var(--text-muted); transition: color 0.2s; }
         .nav-links a:hover { color: var(--text-main); }
         .nav-cta {
-            font-size: 14px;
-            font-weight: 600;
-            color: #ffffff;
-            background-color: var(--text-main);
-            padding: 10px 20px;
-            border-radius: 4px;
-            transition: background 0.2s;
+            font-size: 15px; font-weight: 600; color: #fff;
+            background: linear-gradient(135deg, var(--web-color), var(--ai-color));
+            padding: 10px 24px; border-radius: 100px; transition: transform 0.2s;
         }
-        .nav-cta:hover { background-color: var(--accent-hover); }
+        .nav-cta:hover { transform: translateY(-2px); }
 
         /* ── HERO ── */
         .hero {
-            padding: 40px 0 80px;
+            padding: 80px 0 100px;
             display: flex;
             align-items: center;
+            justify-content: space-between;
             gap: 60px;
         }
-        .hero-content {
-            flex: 1;
-        }
-        .hero-profile-img {
-            width: 180px;
-            height: 180px;
-            flex-shrink: 0;
-            border-radius: 4px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-        }
-        .hero-profile-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-        .hero-badge {
-            display: inline-block;
-            padding: 4px 12px;
-            background: var(--tag-bg);
-            border: 1px solid var(--border-color);
-            font-size: 12px;
-            font-weight: 600;
-            color: var(--text-muted);
-            margin-bottom: 24px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(36px, 5vw, 56px);
-            line-height: 1.1;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            margin-bottom: 24px;
-            color: var(--text-main);
-        }
-        .hero p {
-            font-size: 16px;
-            color: var(--text-muted);
-            max-width: 600px;
-            margin-bottom: 40px;
-        }
-        .btn {
-            display: inline-block;
-            padding: 12px 24px;
-            border-radius: 4px;
-            font-weight: 500;
-            font-size: 14px;
-            transition: all 0.2s;
-        }
-        .btn-primary {
-            background-color: var(--text-main);
-            color: #ffffff;
-        }
-        .btn-primary:hover {
-            background-color: var(--accent-hover);
-        }
-        .btn-secondary {
-            background-color: transparent;
-            border: 1px solid var(--border-color);
-            margin-left: 12px;
-        }
-        .btn-secondary:hover {
-            border-color: var(--text-main);
-        }
-
-        /* ── SECTION HEADINGS ── */
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 40px;
-            letter-spacing: -0.5px;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 16px;
-        }
-
-        /* ── EXPERTISE ── */
-        .bento-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 24px;
-            margin-bottom: 100px;
-        }
-        .bento-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            padding: 32px;
-        }
-        .bento-large {
-            grid-column: span 2;
-            background: #ffffff;
-            padding: 0 0 32px 0;
-            border: none;
-        }
-        .bento-large p { margin-bottom: 16px; }
+        .hero-content { flex: 1; }
         
-        .bento-card h3 {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 16px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .bento-card p {
-            color: var(--text-muted);
-            font-size: 15px;
-        }
-        .skill-tags {
+        .visual-badges {
             display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
+            gap: 12px;
+            margin-bottom: 24px;
         }
-        .skill-tag {
-            font-size: 12px;
-            font-weight: 500;
-            padding: 4px 10px;
-            background: #ffffff;
-            border: 1px solid var(--border-color);
-            border-radius: 2px;
-            color: var(--tag-text);
+        .v-badge {
+            display: flex; align-items: center; gap: 8px;
+            padding: 6px 14px; border-radius: 100px;
+            font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;
         }
+        .v-badge.web { background: var(--web-bg); color: var(--web-color); border: 1px solid #bfdbfe; }
+        .v-badge.ai { background: var(--ai-bg); color: var(--ai-color); border: 1px solid #ddd6fe; }
+
+        .hero h1 {
+            font-size: clamp(40px, 5vw, 60px);
+            line-height: 1.1; font-weight: 800; letter-spacing: -1px; margin-bottom: 24px;
+        }
+        .hero h1 span { color: var(--web-color); }
+        .hero h1 span.ai { color: var(--ai-color); }
+        
+        .hero p { font-size: 18px; color: var(--text-muted); max-width: 500px; margin-bottom: 40px; }
+        
+        .hero-image-container {
+            position: relative;
+            width: 350px;
+            height: 350px;
+            flex-shrink: 0;
+        }
+        .hero-image {
+            width: 100%; height: 100%; object-fit: cover;
+            border-radius: 32px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Floating visual elements around the photo */
+        .float-card {
+            position: absolute; background: #fff; padding: 12px 16px; border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08); display: flex; align-items: center; gap: 12px;
+            font-weight: 700; font-size: 14px; z-index: 3; animation: float 6s ease-in-out infinite;
+        }
+        .fc-1 { top: 20px; left: -40px; color: var(--web-color); animation-delay: 0s; }
+        .fc-2 { bottom: 40px; right: -30px; color: var(--ai-color); animation-delay: 2s; }
+        .fc-1 svg, .fc-2 svg { width: 24px; height: 24px; }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* ── SECTION TITLE ── */
+        .section-title {
+            font-size: 32px; font-weight: 800; text-align: center; margin-bottom: 60px;
+        }
+
+        /* ── VISUAL EXPERTISE ── */
+        .expertise-split {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 100px;
+        }
+        .exp-card {
+            background: var(--card-bg); border-radius: 24px; padding: 40px;
+            border: 1px solid var(--border-color); box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            position: relative; overflow: hidden;
+        }
+        .exp-card::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 6px;
+        }
+        .exp-card.web::before { background: var(--web-color); }
+        .exp-card.ai::before { background: var(--ai-color); }
+        
+        .exp-icon {
+            width: 64px; height: 64px; border-radius: 16px; display: flex; align-items: center; justify-content: center;
+            margin-bottom: 24px;
+        }
+        .exp-card.web .exp-icon { background: var(--web-bg); color: var(--web-color); }
+        .exp-card.ai .exp-icon { background: var(--ai-bg); color: var(--ai-color); }
+        .exp-icon svg { width: 32px; height: 32px; }
+        
+        .exp-card h3 { font-size: 24px; font-weight: 800; margin-bottom: 16px; }
+        .exp-card p { color: var(--text-muted); margin-bottom: 24px; }
+        .tech-list { display: flex; flex-wrap: wrap; gap: 8px; }
+        .tech-tag { padding: 6px 12px; border-radius: 8px; font-size: 13px; font-weight: 600; }
+        .exp-card.web .tech-tag { background: var(--web-bg); color: var(--web-color); }
+        .exp-card.ai .tech-tag { background: var(--ai-bg); color: var(--ai-color); }
 
         /* ── PROJECTS ── */
         .projects-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 32px;
-            margin-bottom: 100px;
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; margin-bottom: 100px;
         }
         .project-card {
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            padding: 32px;
-            display: flex;
-            flex-direction: column;
-            transition: box-shadow 0.2s;
+            background: #fff; border: 1px solid var(--border-color); border-radius: 20px;
+            padding: 32px; transition: transform 0.2s, box-shadow 0.2s;
         }
-        .project-card:hover {
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+        .project-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.05); }
+        .project-type {
+            display: inline-block; padding: 4px 12px; border-radius: 100px; font-size: 12px; font-weight: 700; margin-bottom: 16px;
         }
-        .project-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 16px;
-        }
-        .project-header h3 {
-            font-size: 18px;
-            font-weight: 700;
-        }
-        .project-link {
-            font-size: 13px;
-            color: var(--text-muted);
-            font-weight: 500;
-            text-decoration: underline;
-        }
-        .project-link:hover { color: var(--text-main); }
-        .project-card p {
-            color: var(--text-muted);
-            font-size: 14px;
-            margin-bottom: 24px;
-            flex-grow: 1;
-        }
+        .pt-web { background: var(--web-bg); color: var(--web-color); }
+        .pt-ai { background: var(--ai-bg); color: var(--ai-color); }
+        .project-card h3 { font-size: 20px; font-weight: 800; margin-bottom: 12px; }
+        .project-card p { color: var(--text-muted); font-size: 15px; margin-bottom: 24px; }
+        .project-link { font-weight: 700; font-size: 14px; color: var(--text-main); text-decoration: underline; text-decoration-color: var(--border-color); }
+        .project-link:hover { text-decoration-color: var(--text-main); }
 
-        /* ── EXPERIENCE & FORMATION ── */
-        .experience-list {
-            display: flex;
-            flex-direction: column;
-            gap: 32px;
-            margin-bottom: 100px;
-        }
-        .exp-item {
-            display: grid;
-            grid-template-columns: 180px 1fr;
-            gap: 32px;
-            padding-bottom: 32px;
-            border-bottom: 1px solid var(--border-color);
-        }
-        .exp-item:last-child { border-bottom: none; padding-bottom: 0; }
-        
-        .exp-date {
-            color: var(--text-muted);
-            font-size: 13px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .exp-role {
-            font-size: 16px;
-            font-weight: 700;
-            margin-bottom: 4px;
-        }
-        .exp-company {
-            color: var(--text-main);
-            font-size: 14px;
-            font-weight: 500;
-            margin-bottom: 12px;
-        }
-        .exp-desc {
-            color: var(--text-muted);
-            font-size: 14px;
-        }
-        .exp-desc ul {
-            padding-left: 16px;
-            margin-top: 8px;
-        }
-        .exp-desc li { margin-bottom: 6px; }
+        /* ── EXPERIENCE ── */
+        .timeline { max-width: 800px; margin: 0 auto 100px; }
+        .tl-item { display: grid; grid-template-columns: 150px 1fr; gap: 32px; margin-bottom: 40px; }
+        .tl-date { color: var(--text-muted); font-weight: 700; font-size: 14px; text-align: right; }
+        .tl-content { background: #fff; border: 1px solid var(--border-color); padding: 24px; border-radius: 16px; }
+        .tl-title { font-size: 18px; font-weight: 800; margin-bottom: 4px; }
+        .tl-company { color: var(--text-main); font-weight: 600; font-size: 14px; margin-bottom: 12px; display: inline-block; padding: 4px 10px; background: #f1f5f9; border-radius: 6px; }
+        .tl-content p { color: var(--text-muted); font-size: 14px; }
 
         /* ── FOOTER ── */
         footer {
-            border-top: 1px solid var(--border-color);
-            padding: 40px 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            border-top: 1px solid var(--border-color); padding: 40px 0; text-align: center;
         }
-        .footer-text {
-            color: var(--text-muted);
-            font-size: 13px;
-        }
-        .footer-links {
-            display: flex;
-            gap: 24px;
-        }
-        .footer-links a {
-            color: var(--text-main);
-            font-size: 13px;
-            font-weight: 500;
-        }
-        .footer-links a:hover { text-decoration: underline; }
+        .footer-text { color: var(--text-muted); font-size: 14px; margin-bottom: 16px; }
+        .footer-links { display: flex; justify-content: center; gap: 24px; }
+        .footer-links a { color: var(--text-main); font-weight: 600; font-size: 14px; }
 
-        /* ── RESPONSIVE ── */
-        @media(max-width: 768px) {
-            .nav-links { display: none; }
-            .hero { flex-direction: column-reverse; text-align: center; gap: 32px; }
-            .hero-profile-img { width: 140px; height: 140px; }
-            .bento-grid { grid-template-columns: 1fr; }
-            .bento-large { grid-column: span 1; }
-            .projects-grid { grid-template-columns: 1fr; }
-            .exp-item { grid-template-columns: 1fr; gap: 8px; }
-            footer { flex-direction: column; gap: 16px; text-align: center; }
+        @media(max-width: 900px) {
+            .hero { flex-direction: column; text-align: center; }
+            .hero-content { display: flex; flex-direction: column; align-items: center; }
+            .visual-badges { justify-content: center; }
+            .hero p { margin: 0 auto 30px; }
+            .expertise-split, .projects-grid { grid-template-columns: 1fr; }
+            .tl-item { grid-template-columns: 1fr; gap: 12px; }
+            .tl-date { text-align: left; }
+            .float-card { display: none; } /* Hide floats on mobile to keep it clean */
         }
     </style>
 </head>
 <body>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
 
     <div class="container">
         <!-- NAV -->
         <nav>
-            <a href="#" class="brand">PK.</a>
+            <div class="brand">PK.</div>
             <ul class="nav-links">
-                <li><a href="#about">Profil</a></li>
+                <li><a href="#about">Expertise</a></li>
                 <li><a href="#projects">Projets</a></li>
-                <li><a href="#experience">Expériences</a></li>
-                <li><a href="#formation">Formation</a></li>
+                <li><a href="#experience">Parcours</a></li>
             </ul>
             <a href="mailto:jovyberny@gmail.com" class="nav-cta">Me contacter</a>
         </nav>
@@ -355,68 +229,68 @@
         <!-- HERO -->
         <section class="hero">
             <div class="hero-content">
-                <div class="hero-badge">Recherche Alternance — 24 Mois</div>
-                <h1>Développeur Full-Stack & Ingénieur IA.</h1>
-                <p>Étudiant en Master à INGETIS Paris. Je conçois des pipelines Python d'intelligence artificielle (RAG, LLMs) de bout en bout et développe des applications web/mobiles performantes.</p>
-                <div>
-                    <a href="#projects" class="btn btn-primary">Voir les projets</a>
-                    <a href="#experience" class="btn btn-secondary">Mon parcours</a>
+                <div class="visual-badges">
+                    <div class="v-badge web">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>
+                        Web Dev
+                    </div>
+                    <div class="v-badge ai">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19 12h3M2 12h3M12 2v3M12 19v3M16.95 7.05l2.12-2.12M4.93 19.07l2.12-2.12M16.95 16.95l2.12 2.12M4.93 4.93l2.12 2.12"/></svg>
+                        Data & AI
+                    </div>
+                </div>
+                <h1>Créateur d'applications <span>Web</span> & Solutions <span class="ai">IA</span>.</h1>
+                <p>Étudiant en Master à INGETIS Paris (Alternance 24 mois). Je développe des interfaces web ultra-fluides et j'intègre des modèles d'intelligence artificielle pour les rendre intelligentes.</p>
+                <div style="display:flex; gap:16px; margin-top:30px; justify-content: flex-start;">
+                    <a href="#projects" class="nav-cta" style="display:inline-block; border-radius: 8px;">Voir mes réalisations</a>
                 </div>
             </div>
-            <div class="hero-profile-img">
-                <!-- IMPORTANT : Si l'image locale ne charge pas, c'est qu'il faut sauvegarder l'image envoyée sous le nom profile.jpg dans ce dossier. -->
-                <!-- Pour l'instant j'utilise un lien direct vers votre image si possible, ou à défaut un placeholder (qui échouera doucement) pour montrer le layout -->
-                <img src="profile.jpg" alt="Patrick J. Kamgaing Domegne" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=300&auto=format&fit=crop';">
+            
+            <div class="hero-image-container">
+                <img src="profile.jpg" alt="Patrick J. Kamgaing" class="hero-image">
+                <div class="float-card fc-1">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    React & Next.js
+                </div>
+                <div class="float-card fc-2">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                    Python & RAG
+                </div>
             </div>
         </section>
 
-        <!-- BENTO GRID (ABOUT & SKILLS) -->
+        <!-- VISUAL EXPERTISE -->
         <section id="about">
-            <h2 class="section-title">Expertise</h2>
-            <div class="bento-grid">
+            <h2 class="section-title">Ma double compétence</h2>
+            <div class="expertise-split">
                 
-                <div class="bento-card bento-large">
-                    <p>Mon profil hybride est ma plus grande force. Avec une formation initiale exigeante en classes préparatoires (MPSI/MP) suivie d'un cursus spécialisé en Ingénierie Logicielle et IA, je possède la rigueur analytique nécessaire pour résoudre des problèmes complexes.</p>
-                    <p>Aujourd'hui, je recherche une alternance stimulante où je pourrai mobiliser ma double compétence technique pour industrialiser des solutions IA à fort impact tout en garantissant des socles applicatifs fiables.</p>
-                </div>
-
-                <div class="bento-card">
-                    <h3>IA, LLMs & Data</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">LangChain</span>
-                        <span class="skill-tag">RAG</span>
-                        <span class="skill-tag">Pandas</span>
-                        <span class="skill-tag">SQL</span>
+                <div class="exp-card web">
+                    <div class="exp-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                    </div>
+                    <h3>Développement Full-Stack</h3>
+                    <p>Je crée des applications web complètes, responsives et très performantes, avec une architecture solide côté serveur.</p>
+                    <div class="tech-list">
+                        <span class="tech-tag">React.js</span>
+                        <span class="tech-tag">Next.js</span>
+                        <span class="tech-tag">Tailwind</span>
+                        <span class="tech-tag">Spring Boot</span>
+                        <span class="tech-tag">Node.js</span>
                     </div>
                 </div>
 
-                <div class="bento-card">
-                    <h3>Front-end & Mobile</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">React.js</span>
-                        <span class="skill-tag">Next.js</span>
-                        <span class="skill-tag">Tailwind CSS</span>
-                        <span class="skill-tag">Flutter</span>
+                <div class="exp-card ai">
+                    <div class="exp-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h4l3-9 5 18 3-9h5"/></svg>
                     </div>
-                </div>
-
-                <div class="bento-card">
-                    <h3>Back-end</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Spring Boot</span>
-                        <span class="skill-tag">Node.js</span>
-                        <span class="skill-tag">API REST</span>
-                        <span class="skill-tag">PostgreSQL</span>
-                    </div>
-                </div>
-
-                <div class="bento-card">
-                    <h3>Outils & DevOps</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Git / GitHub</span>
-                        <span class="skill-tag">Docker</span>
-                        <span class="skill-tag">Agile (Scrum)</span>
+                    <h3>Data & Intelligence Artificielle</h3>
+                    <p>Je conçois des pipelines IA sur mesure, de l'analyse de données jusqu'à la mise en place d'agents conversationnels (RAG).</p>
+                    <div class="tech-list">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">LangChain</span>
+                        <span class="tech-tag">Pandas</span>
+                        <span class="tech-tag">NLP</span>
+                        <span class="tech-tag">SQL</span>
                     </div>
                 </div>
 
@@ -425,169 +299,87 @@
 
         <!-- PROJECTS -->
         <section id="projects">
-            <h2 class="section-title">Projets Techniques</h2>
+            <h2 class="section-title">Réalisations Récentes</h2>
             <div class="projects-grid">
 
                 <div class="project-card">
-                    <div class="project-header">
-                        <h3>Cyna (E-commerce)</h3>
-                        <a href="https://cynaapp.vercel.app" target="_blank" class="project-link">Lien ↗</a>
-                    </div>
-                    <p>Développement de modules clés pour une plateforme e-commerce : authentification sécurisée et gestion de panier en temps réel.</p>
-                    <div class="skill-tags">
-                        <span class="skill-tag">React</span>
-                        <span class="skill-tag">Next.js</span>
-                    </div>
+                    <span class="project-type pt-web">WEB DEV</span>
+                    <h3>Cyna (E-commerce)</h3>
+                    <p>Modules clés pour une plateforme e-commerce : authentification sécurisée et panier temps réel.</p>
+                    <a href="https://cynaapp.vercel.app" target="_blank" class="project-link">Voir le site ↗</a>
                 </div>
 
                 <div class="project-card">
-                    <div class="project-header">
-                        <h3>Campus Stage</h3>
-                        <a href="https://campus-stage.vercel.app" target="_blank" class="project-link">Lien ↗</a>
-                    </div>
-                    <p>Moteur de recherche centralisant les parcours étudiants. Mise en relation performante entre candidats et entreprises.</p>
-                    <div class="skill-tags">
-                        <span class="skill-tag">React</span>
-                        <span class="skill-tag">Next.js</span>
-                    </div>
+                    <span class="project-type pt-web">WEB DEV</span>
+                    <h3>Campus Stage</h3>
+                    <p>Moteur de recherche performant centralisant les parcours étudiants et les offres d'entreprises.</p>
+                    <a href="https://campus-stage.vercel.app" target="_blank" class="project-link">Voir le site ↗</a>
                 </div>
 
                 <div class="project-card">
-                    <div class="project-header">
-                        <h3>ContentAI (SaaS)</h3>
-                        <a href="https://containt-ai.vercel.app" target="_blank" class="project-link">Lien ↗</a>
-                    </div>
-                    <p>Plateforme SaaS automatisant la génération de contenu via GPT-4, avec gestion des abonnements utilisateurs.</p>
-                    <div class="skill-tags">
-                        <span class="skill-tag">React</span>
-                        <span class="skill-tag">API OpenAI</span>
-                    </div>
+                    <span class="project-type pt-ai">IA & SAAS</span>
+                    <h3>ContentAI</h3>
+                    <p>Plateforme SaaS automatisant la génération de contenu textuel via GPT-4 avec abonnements intégrés.</p>
+                    <a href="https://containt-ai.vercel.app" target="_blank" class="project-link">Voir le site ↗</a>
                 </div>
 
                 <div class="project-card">
-                    <div class="project-header">
-                        <h3>Agent Conversationnel</h3>
-                    </div>
-                    <p>Conception d'un agent RAG sur base documentaire pour générer des réponses contextualisées et traçables, optimisées par prompts.</p>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">LangChain</span>
-                        <span class="skill-tag">RAG</span>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>Analyse de Logs</h3>
-                    </div>
-                    <p>Transformation des logs en indicateurs de qualité (sentiment, résolution) pour cibler les corrections métiers.</p>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">NLP</span>
-                        <span class="skill-tag">Pandas</span>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>GestionProduit</h3>
-                    </div>
-                    <p>Centralisation de 3 fonctions : gestion des stocks, alertes de seuil et administration.</p>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Java</span>
-                        <span class="skill-tag">Spring Boot</span>
-                    </div>
+                    <span class="project-type pt-ai">IA / RAG</span>
+                    <h3>Agent Conversationnel</h3>
+                    <p>Conception d'un agent de type RAG pour générer des réponses expertes basées sur une base documentaire interne.</p>
+                    <span class="project-link" style="text-decoration:none; color:#94a3b8;">Python / LangChain</span>
                 </div>
 
             </div>
         </section>
 
-        <!-- EXPERIENCE -->
+        <!-- EXPERIENCE TIMELINE -->
         <section id="experience">
-            <h2 class="section-title">Expériences Professionnelles</h2>
-            
-            <div class="experience-list">
+            <h2 class="section-title">Parcours & Expérience</h2>
+            <div class="timeline">
                 
-                <div class="exp-item">
-                    <div class="exp-date">Sep 2025 – Août 2026</div>
-                    <div>
-                        <div class="exp-role">Développeur Python, Data Analyst & Web</div>
-                        <div class="exp-company">DataScale · Paris, France</div>
-                        <div class="exp-desc">
-                            <ul>
-                                <li>Fiabilisation des données de production (extraction, nettoyage) via Python/Pandas et SQL.</li>
-                                <li>Livraison de fonctionnalités web en React.js/Tailwind CSS, jusqu'à la production.</li>
-                                <li>Accélération de la détection d'écarts via des KPIs actionnables.</li>
-                            </ul>
-                        </div>
+                <div class="tl-item">
+                    <div class="tl-date">Dès Sept 2026</div>
+                    <div class="tl-content">
+                        <div class="tl-title">Mastère Data / AI Engineer</div>
+                        <div class="tl-company">INGETIS · Paris</div>
+                        <p>Spécialisation en Machine Learning, Big Data et Modélisation avancée.</p>
                     </div>
                 </div>
 
-                <div class="exp-item">
-                    <div class="exp-date">Sep 2024 – Août 2025</div>
-                    <div>
-                        <div class="exp-role">Assistant Data & Développeur Web</div>
-                        <div class="exp-company">Ogooué Tech · Libreville, Gabon</div>
-                        <div class="exp-desc">
-                            <ul>
-                                <li>Amélioration de la maintenabilité du code via le refactoring.</li>
-                                <li>Automatisation de la collecte et du traitement de données via des API REST.</li>
-                                <li>Renforcement de la qualité des bases par détection d'anomalies.</li>
-                            </ul>
-                        </div>
+                <div class="tl-item">
+                    <div class="tl-date">Sep 2025 – Aoû 2026</div>
+                    <div class="tl-content">
+                        <div class="tl-title">Développeur Python, Data & Web</div>
+                        <div class="tl-company">DataScale · Paris</div>
+                        <p>Fiabilisation des données via Python/Pandas et développement d'interfaces React pour accélérer la détection d'anomalies de production.</p>
                     </div>
                 </div>
 
-            </div>
-        </section>
-
-        <!-- FORMATION -->
-        <section id="formation">
-            <h2 class="section-title">Formation</h2>
-            
-            <div class="experience-list">
-                
-                <div class="exp-item">
-                    <div class="exp-date">Dès Sept 2026</div>
-                    <div>
-                        <div class="exp-role">Mastère Data / AI Engineer</div>
-                        <div class="exp-company">INGETIS · Paris</div>
-                        <div class="exp-desc">
-                            Machine Learning, Big Data, Datamining, Base de données avancées, Modélisation.
-                        </div>
+                <div class="tl-item">
+                    <div class="tl-date">2025 – 2026</div>
+                    <div class="tl-content">
+                        <div class="tl-title">Bachelor en DEV / DATA</div>
+                        <div class="tl-company">INGETIS · Paris</div>
+                        <p>Algorithmique, Bases de données, Dev full-stack et analyse de données.</p>
                     </div>
                 </div>
 
-                <div class="exp-item">
-                    <div class="exp-date">2025 – 2026</div>
-                    <div>
-                        <div class="exp-role">Bachelor en DEV / DATA</div>
-                        <div class="exp-company">INGETIS · Paris</div>
-                        <div class="exp-desc">
-                            Algorithmique, Bases de données (SQL/NoSQL), Développement full-stack, Scripts Python, Analyse de données.
-                        </div>
+                <div class="tl-item">
+                    <div class="tl-date">Sep 2024 – Aoû 2025</div>
+                    <div class="tl-content">
+                        <div class="tl-title">Assistant Data & Développeur Web</div>
+                        <div class="tl-company">Ogooué Tech · Gabon</div>
+                        <p>Automatisation de la collecte de données via API et amélioration de la qualité logicielle par refactoring.</p>
                     </div>
                 </div>
 
-                <div class="exp-item">
-                    <div class="exp-date">2023 – 2025</div>
-                    <div>
-                        <div class="exp-role">Classes Préparatoires MPSI / MP</div>
-                        <div class="exp-company">Sup'Management · Libreville, Gabon</div>
-                        <div class="exp-desc">
-                            Formation scientifique d'élite (Mathématiques, Physique, Informatique).
-                        </div>
-                    </div>
-                </div>
-
-                <div class="exp-item">
-                    <div class="exp-date">2022 – 2023</div>
-                    <div>
-                        <div class="exp-role">Année de Langue Italienne</div>
-                        <div class="exp-company">Apprentissage Intensif</div>
-                        <div class="exp-desc">
-                            Apprentissage et perfectionnement de la langue italienne.
-                        </div>
+                <div class="tl-item">
+                    <div class="tl-date">2023 – 2025</div>
+                    <div class="tl-content">
+                        <div class="tl-title">Classes Préparatoires MPSI / MP</div>
+                        <div class="tl-company">Sup'Management · Gabon</div>
+                        <p>Fondations mathématiques et scientifiques poussées, algorithmique fondamentale.</p>
                     </div>
                 </div>
 
@@ -603,8 +395,6 @@
                 <a href="tel:0751462503">07 51 46 25 03</a>
             </div>
         </footer>
-
     </div>
-
 </body>
 </html>

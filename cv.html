@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Patrick J. Kamgaing</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Outfit', sans-serif; color: #1e293b; background: #e2e8f0; font-size: 11px; line-height: 1.4; padding: 20px; }
+        
+        /* A4 Page constraints for print */
+        @page { size: A4; margin: 0; }
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            background: #fff;
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            display: flex;
+            overflow: hidden;
+        }
+
+        /* Sidebar (Left) */
+        .sidebar {
+            width: 33%;
+            background: #0f172a;
+            color: #f8fafc;
+            padding: 40px 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        .profile-img {
+            width: 130px; height: 130px; border-radius: 50%; object-fit: cover;
+            border: 3px solid #3b82f6; margin: 0 auto; display: block;
+        }
+        .contact-info { display: flex; flex-direction: column; gap: 8px; }
+        .contact-info span { font-size: 11px; font-weight: 300; display: flex; align-items: center; gap: 8px; }
+        
+        .sidebar h2 { font-size: 15px; font-weight: 700; text-transform: uppercase; border-bottom: 2px solid rgba(59, 130, 246, 0.5); padding-bottom: 5px; margin-bottom: 12px; letter-spacing: 1px; color: #fff; }
+        
+        .skills-group { margin-bottom: 12px; }
+        .skills-group h3 { font-size: 11px; color: #94a3b8; font-weight: 600; margin-bottom: 6px; }
+        .tags { display: flex; flex-wrap: wrap; gap: 5px; }
+        .tag { background: rgba(255,255,255,0.1); padding: 4px 8px; border-radius: 4px; font-weight: 500; font-size: 10px; }
+        
+        /* Main Content (Right) */
+        .main {
+            width: 67%;
+            padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        .header h1 { font-size: 36px; font-weight: 800; color: #0f172a; line-height: 1; margin-bottom: 6px; letter-spacing: -0.5px; }
+        .header h1 span { color: #3b82f6; }
+        .header .subtitle { font-size: 15px; font-weight: 600; color: #3b82f6; text-transform: uppercase; letter-spacing: 1px; }
+        
+        .main h2 { font-size: 16px; font-weight: 800; color: #0f172a; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; text-transform: uppercase; letter-spacing: 0.5px;}
+        .main h2 span { color: #3b82f6; font-size: 18px;}
+        
+        .item { margin-bottom: 12px; }
+        .item-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2px; }
+        .item-title { font-weight: 800; font-size: 13px; color: #0f172a; }
+        .item-date { font-weight: 600; font-size: 11px; color: #3b82f6; }
+        .item-subtitle { font-weight: 600; font-size: 11px; color: #64748b; margin-bottom: 4px; }
+        .item-desc { font-size: 11px; color: #475569; }
+        .item-desc ul { padding-left: 15px; margin-top: 3px; }
+        .item-desc li { margin-bottom: 2px; }
+
+        .projects { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .project { background: #f8fafc; padding: 12px; border-radius: 6px; border-left: 3px solid #3b82f6; }
+        .project-title { font-weight: 800; font-size: 12px; color: #0f172a; margin-bottom: 4px; }
+        .project-desc { font-size: 10px; color: #475569; }
+
+        @media print {
+            body { background: #fff; padding: 0; }
+            .page { margin: 0; box-shadow: none; width: 100%; height: 100%; }
+            .sidebar { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .tag { border: 1px solid rgba(255,255,255,0.2); }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- SIDEBAR -->
+        <div class="sidebar">
+            <img src="profile.jpg" alt="Patrick" class="profile-img">
+            
+            <div class="contact-info">
+                <span>📍 Paris, France</span>
+                <span>📧 jovyberny@gmail.com</span>
+                <span>📞 07 51 46 25 03</span>
+                <span>🔗 github.com/jovyberny-gif</span>
+            </div>
+
+            <div>
+                <h2>Profil</h2>
+                <p style="font-size: 11px; font-weight: 300;">Étudiant en Master à INGETIS Paris en <strong>recherche d'une alternance de 24 mois</strong>. Fort de ma double compétence, je développe des interfaces web performantes et j'intègre des modèles d'intelligence artificielle pour concevoir des solutions applicatives robustes de bout en bout.</p>
+            </div>
+
+            <div>
+                <h2>Compétences</h2>
+                <div class="skills-group">
+                    <h3>WEB DEV (Front & Back)</h3>
+                    <div class="tags">
+                        <span class="tag">React.js</span>
+                        <span class="tag">Next.js</span>
+                        <span class="tag">Tailwind CSS</span>
+                        <span class="tag">Spring Boot</span>
+                        <span class="tag">Node.js</span>
+                    </div>
+                </div>
+                <div class="skills-group">
+                    <h3>DATA & IA</h3>
+                    <div class="tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">LangChain</span>
+                        <span class="tag">RAG</span>
+                        <span class="tag">Pandas</span>
+                        <span class="tag">SQL</span>
+                    </div>
+                </div>
+                <div class="skills-group">
+                    <h3>OUTILS</h3>
+                    <div class="tags">
+                        <span class="tag">Git</span>
+                        <span class="tag">Docker</span>
+                        <span class="tag">Agile (Scrum)</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div>
+                <h2>Langues</h2>
+                <div class="contact-info" style="margin-top: 5px;">
+                    <span>Français : Courant</span>
+                    <span>Anglais : Technique</span>
+                    <span>Italien : Intermédiaire</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- MAIN CONTENT -->
+        <div class="main">
+            <div class="header">
+                <h1>Patrick <span>Kamgaing</span></h1>
+                <div class="subtitle">Développeur Full-Stack & Ingénieur IA</div>
+            </div>
+
+            <div>
+                <h2><span>●</span> Expériences Pro</h2>
+                
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-title">Développeur Python, Data & Web</div>
+                        <div class="item-date">Sep 2025 – Aoû 2026</div>
+                    </div>
+                    <div class="item-subtitle">DataScale · Paris, France</div>
+                    <div class="item-desc">
+                        <ul>
+                            <li>Fiabilisation des données via Python/Pandas et requêtes SQL complexes.</li>
+                            <li>Développement d'interfaces web React pour la détection d'anomalies de production.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-title">Assistant Data & Développeur Web</div>
+                        <div class="item-date">Jan 2024 – Déc 2024</div>
+                    </div>
+                    <div class="item-subtitle">Ogooué Tech · Libreville, Gabon</div>
+                    <div class="item-desc">
+                        <ul>
+                            <li>Automatisation de la collecte de données via des API REST.</li>
+                            <li>Amélioration de la qualité logicielle globale par refactoring et maintenance.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-title">Développeur Front-End (Freelance)</div>
+                        <div class="item-date">Fév 2023 – Nov 2023</div>
+                    </div>
+                    <div class="item-subtitle">TechSolutions · Télétravail</div>
+                    <div class="item-desc">
+                        Conception et déploiement de sites vitrines interactifs pour des PME locales avec React et Tailwind CSS.
+                    </div>
+                </div>
+                
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-title">Intégrateur Web & Tech Support</div>
+                        <div class="item-date">Juin 2021 – Aoû 2022</div>
+                    </div>
+                    <div class="item-subtitle">GabonWeb · Libreville, Gabon</div>
+                    <div class="item-desc">
+                        Intégration de maquettes HTML/CSS, maintenance de sites CMS et assistance technique de premier niveau.
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h2><span>●</span> Formation</h2>
+                <div class="item" style="margin-bottom: 6px;">
+                    <div class="item-header">
+                        <div class="item-title">Mastère Data / AI Engineer</div>
+                        <div class="item-date">Dès Sept 2026</div>
+                    </div>
+                    <div class="item-subtitle">INGETIS · Paris</div>
+                </div>
+                <div class="item" style="margin-bottom: 6px;">
+                    <div class="item-header">
+                        <div class="item-title">Bachelor en DEV / DATA</div>
+                        <div class="item-date">2025 – 2026</div>
+                    </div>
+                    <div class="item-subtitle">INGETIS · Paris</div>
+                </div>
+                <div class="item" style="margin-bottom: 6px;">
+                    <div class="item-header">
+                        <div class="item-title">Classes Préparatoires MPSI / MP</div>
+                        <div class="item-date">2023 – 2025</div>
+                    </div>
+                    <div class="item-subtitle">Sup'Management · Libreville, Gabon</div>
+                </div>
+            </div>
+
+            <div>
+                <h2><span>●</span> Projets Techniques</h2>
+                <div class="projects">
+                    <div class="project">
+                        <div class="project-title">Cyna (E-commerce)</div>
+                        <div class="project-desc">Authentification sécurisée et gestion de panier en temps réel. (Next.js/React)</div>
+                    </div>
+                    <div class="project">
+                        <div class="project-title">Agent RAG Documentaire</div>
+                        <div class="project-desc">Agent conversationnel IA expert basé sur une documentation interne. (LangChain/Python)</div>
+                    </div>
+                    <div class="project">
+                        <div class="project-title">ContentAI (SaaS)</div>
+                        <div class="project-desc">Plateforme SaaS de génération de contenu propulsée par l'API GPT-4.</div>
+                    </div>
+                    <div class="project">
+                        <div class="project-title">Campus Stage</div>
+                        <div class="project-desc">Moteur de recherche centralisant les parcours étudiants. (React)</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
